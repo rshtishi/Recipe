@@ -2,30 +2,50 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Recipe</title>
+<title>View Recipe</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
 </head>
 <body>
 
-	<div>
-		<h2>Detail View</h2>
+	<div class="container">
+
+		<div class="jumbotron">
+			<h1>View Recipe</h1>
+		</div>
+		<div class="row">
+			<p class="lead">
+				<a href="/recipes">Back Recipes</a>
+			</p>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<table class="table">
+					<tr>
+						<td><b>No</b></td>
+						<td th:text="${recipe.id}"></td>
+					</tr>
+					<tr>
+						<td><b>Name</b></td>
+						<td th:text="${recipe.name}"></td>
+					</tr>
+					<tr>
+						<td><b>Description</b></td>
+						<td th:text="${recipe.description}"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+
 	</div>
 
-	<div>
-		<table>
-			<tr>
-				<td>No</td>
-				<td th:text="${recipe.id}"></td>
-			</tr>
-			<tr>
-				<td>Name</td>
-				<td th:text="${recipe.name}"></td>
-			</tr>
-			<tr>
-				<td>Description</td>
-				<td th:text="${recipe.description}"></td>
-			</tr>
-		</table>
-	</div>
-
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script th:href="@{/js/bootstrap.js}"></script>
 </body>
 </html>

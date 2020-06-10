@@ -8,40 +8,36 @@ import org.springframework.stereotype.Service;
 import com.github.rshtishi.recipe.entity.Recipe;
 import com.github.rshtishi.recipe.repository.RecipeRepository;
 
-
 @Service
 public class RecipeServiceImpl implements RecipeService {
-	
+
 	@Autowired
-	private RecipeRepository repository;
+	private RecipeRepository recipeRepository;
 
 	@Override
 	public List<Recipe> findAll() {
-		return repository.findAll();
+		return recipeRepository.findAll();
 	}
 
 	@Override
 	public Recipe findById(int id) {
-		Recipe recipe = repository.findById(id).orElse(null);
+		Recipe recipe = recipeRepository.findById(id).orElse(null);
 		return recipe;
 	}
 
 	@Override
 	public Recipe update(Recipe recipe) {
-		// TODO Auto-generated method stub
-		return null;
+		return recipeRepository.save(recipe);
 	}
 
 	@Override
-	public Recipe save(Recipe recipe) {
-		// TODO Auto-generated method stub
-		return null;
+	public Recipe create(Recipe recipe) {
+		return recipeRepository.save(recipe);
 	}
 
 	@Override
 	public void deleteRecipe(int id) {
-		// TODO Auto-generated method stub
-		
+		recipeRepository.deleteById(id);
 	}
 
 }

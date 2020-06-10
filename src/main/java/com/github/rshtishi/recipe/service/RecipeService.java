@@ -12,7 +12,7 @@ public interface RecipeService {
 	
 	public Recipe update(Recipe recipe);
 	
-	public Recipe save(Recipe recipe);
+	public Recipe create(Recipe recipe);
 	
 	public void deleteRecipe(int id);
 
