@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,23 +46,26 @@ public class RecipeController {
 	@GetMapping("/edit/{id}")
 	public String showEditRecipeForm(Model model, @PathVariable int id) {
 		Recipe recipe = recipeService.findById(id);
-		model.addAttribute("recipe",recipe);
+		model.addAttribute("recipe", recipe);
 		return "edit-recipe";
 	}
 
 	@PostMapping("/new")
-	public String addRecipe(@Valid Recipe recipe, BindingResult result, Model model) {
+	public String addRecipe(@Valid Recipe recipe, Errors errors, Model model) {
+		if (errors.hasErrors()) {
+			return "new-recipe";
+		}
 		recipe = recipeService.create(recipe);
-		return "redirect:view/" + String.valueOf(recipe.getId());
+		return "redirect:/recipes/view/" + String.valueOf(recipe.getId());
 	}
-	
+
 	@PostMapping("/edit/{id}")
 	public String editRecipe(@Valid Recipe recipe, BindingResult result, Model model, @PathVariable int id) {
 		recipe.setId(id);
 		recipeService.update(recipe);
-		return "redirect:view/" + String.valueOf(recipe.getId());
+		return "redirect:/recipes/view/" + String.valueOf(recipe.getId());
 	}
-	
+
 	@GetMapping("/delete/{id}")
 	public String deleteRecipe(Model model, @PathVariable int id) {
 		recipeService.deleteRecipe(id);
@@ -69,5 +73,5 @@ public class RecipeController {
 		model.addAttribute("recipes", recipes);
 		return "recipes";
 	}
-	
+
 }

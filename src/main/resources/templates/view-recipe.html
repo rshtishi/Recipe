@@ -18,7 +18,12 @@
 		</div>
 		<div class="row">
 			<p class="lead">
-				<a href="/recipes">Back Recipes</a>
+				<a href="/recipes" class="btn btn-primary"><span
+					class="glyphicon glyphicon-arrow-left"></span></a> <a
+					th:href="@{/recipes/edit/{id}(id=${recipe.id})}"
+					class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></a>
+				<a th:href="@{/recipes/delete/{id}(id=${recipe.id})}"
+					class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
 			</p>
 		</div>
 		<div class="row">
