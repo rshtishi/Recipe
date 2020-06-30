@@ -15,23 +15,23 @@
 		<div class="container">
 
 			<div class="jumbotron">
-				<h1>Recipes</h1>
+				<h1 th:text="#{recipes}"></h1>
 			</div>
 
 			<div class="row">
 				<p class="lead">
-					<a href="/recipes/new" class="btn btn-primary" >Add Recipe</a>
+					<a href="/recipes/new" class="btn btn-primary" th:text="#{addRecipeButton}"></a>
 				</p>
 
 				<table class="table">
 					<thead class="thead-light">
 						<tr>
 							<td><b>#</b></td>
-							<td><b>Name</b></td>
-							<td><b>Description</b></td>
-							<td><b>View</b></td>
-							<td><b>Edit</b></td>
-							<td><b>Delete</b></td>
+							<td><b th:text="#{name}"></b></td>
+							<td><b th:text="#{description}"></b></td>
+							<td><b th:text="#{view}"></b></td>
+							<td><b th:text="#{edit}"></b></td>
+							<td><b th:text="#{delete}"></b></td>
 						</tr>
 					</thead>
 					<tbody>
