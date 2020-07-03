@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Recipe</title>
+<title th:text="#{recipe}"></title>
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
@@ -45,7 +45,7 @@
 							th:errors="*{description}"></span>
 					</div>
 
-					<input type="submit" value="Save" class="btn btn-default">
+					<input type="submit" th:value="#{saveButton}" class="btn btn-default">
 
 				</form>
 			</div>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Error</title>
+<title>Error Page</title>
 
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <link rel="stylesheet"
@@ -14,37 +14,37 @@
 <body>
 	<div class="container">
 		<div class="jumbotron">
-			<h1 th:text="Error"></h1>
+			<h1 th:text="#{error}"></h1>
 		</div>
 		<div class="row">
-			<p class="lead">
-				<b>Date:</b>
+			<p class="lead col-sm-3">
+				<b th:text="#{date}"></b>
 			</p>
-			<p class="lead" th:text="${timestamp}"></p>
+			<p class="lead col-sm-9" th:text="${timestamp}"></p>
 		</div>
 		<div class="row">
-			<p class="lead">
-				<b>Path:</b>
+			<p class="lead col-sm-3">
+				<b th:text="#{path}"></b>
 			</p>
-			<p class="lead" th:text="${path}"></p>
+			<p class="lead col-sm-9" th:text="${path}"></p>
 		</div>
 		<div class="row">
-			<p class="lead">
-				<b>Error:</b>
+			<p class="lead col-sm-3">
+				<b th:text="#{errorType}"></b>
 			</p>
-			<p class="lead" th:text="${error}"></p>
+			<p class="lead col-sm-9" th:text="${error}"></p>
 		</div>
 		<div class="row">
-			<p class="lead">
-				<b>Status:</b>
+			<p class="lead col-sm-3">
+				<b th:text="#{status}"></b>
 			</p>
-			<p class="lead" th:text="${status}"></p>
+			<p class="lead col-sm-9" th:text="${status}"></p>
 		</div>
 		<div class="row">
-			<p class="lead">
-				<b>Message:</b>
+			<p class="lead col-sm-3">
+				<b th:text="#{message}"></b>
 			</p>
-			<p class="lead" th:text="${message}"></p>
+			<p class="lead col-sm-9" th:text="${message}"></p>
 		</div>
 	</div>
 
